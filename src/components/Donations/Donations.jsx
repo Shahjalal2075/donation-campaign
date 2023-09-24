@@ -12,7 +12,7 @@ const Donations = () => {
 
 
     return (
-        <div className='grid grid-cols-1 lg:grid-cols-4 lg:gap-4  md:grid-cols-2 md:gap-4 my-16'>
+        <div className='grid gap-4 grid-cols-1 lg:grid-cols-4 md:grid-cols-2 my-16'>
             {
                 donate.map(donate => <Donation
                     key={donate.id}
