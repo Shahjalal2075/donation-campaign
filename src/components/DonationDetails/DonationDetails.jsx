@@ -17,7 +17,7 @@ const DonationDetails = () => {
         <div className='my-10 m-4'>
             <div className="relative">
                 <div className="relative">
-                    <img className='w-full' src={picture} alt="" />
+                    <img className='w-full ' src={picture} alt="" />
                     <div className='w-full absolute transform -translate-y-1/2 left-0 right-0 -bottom-20 py-20 bg-[#0b0b0b] opacity-50'>
 
                     </div>
