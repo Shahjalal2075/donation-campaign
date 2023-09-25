@@ -1,17 +1,20 @@
 const getStoredList = () => {
     const storedListString = localStorage.getItem('donateList');
-    if(storedListString){
+    if (storedListString) {
         return JSON.parse(storedListString);
     }
     return [];
 }
 
-const addToLS = (id) =>{
+const addToLS = (id) => {
     const donateList = getStoredList();
-    const dataCheck = donates.find(donate => donate.id === idInt);
-    donateList.push(id);
+    const isList = donateList.some(donate=>donate === id);
+    if (!isList) {
+        donateList.push(id);
+    }
+
     const donateListStringified = JSON.stringify(donateList);
-    localStorage.setItem('donateList',donateListStringified);
+    localStorage.setItem('donateList', donateListStringified);
 }
 
-export {addToLS,getStoredList}
+export { addToLS, getStoredList }

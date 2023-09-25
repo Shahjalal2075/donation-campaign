@@ -15,9 +15,8 @@ const DonationDetails = () => {
     const { picture, price, text_color, title, des } = donate;
 
     const handleAddToList = () => {
-        addToLS(id);
         toast("You have successfully donated.");
-
+        addToLS(id);
     }
 
     return (
