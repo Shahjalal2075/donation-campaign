@@ -3,6 +3,8 @@ import Donation from '../Donation/Donation';
 
 const Donations = () => {
     const [donate, setDonate] = useState([]);
+    
+    const [display,setDisplay] = useState([]);
 
     useEffect(() => {
         fetch('donationList.json')
