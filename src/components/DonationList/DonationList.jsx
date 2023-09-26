@@ -6,7 +6,8 @@ const DonationList = () => {
 
 
     const [donates, setDonates] = useState([]);
-    const [donateList,setDonateList]=useState([]);
+    const [donateList, setDonateList] = useState([]);
+    const [dataLength, setDataLength] = useState([4]);
 
     useEffect(() => {
         fetch('donationList.json')
@@ -18,7 +19,7 @@ const DonationList = () => {
         if (donates.length) {
             const saveDonateList = [];
             const storedDonateList = getStoredList();
-            
+
             for (const id of storedDonateList) {
                 const idInt = parseInt(id);
                 const donate = donates.find(donate => donate.id === idInt);
@@ -31,13 +32,23 @@ const DonationList = () => {
     }, [donates])
 
     return (
-        <div className='grid gap-4 grid-cols-1 lg:grid-cols-2 md:grid-cols-1 my-16'>
-            {
-                donateList.map(donate => <DonationListCard
-                    key={donate.id}
-                    donate={donate}
-                ></DonationListCard>)
-            }
+        <div className="">
+            <div className='grid gap-4 grid-cols-1 lg:grid-cols-2 md:grid-cols-1 my-16'>
+                {
+                    donateList.slice(0, dataLength).map(donate => <DonationListCard
+                        key={donate.id}
+                        donate={donate}
+                    ></DonationListCard>)
+                }
+            </div>
+            <div className={(dataLength===donateList.length || donateList.length<=4) && 'hidden'}>
+                <div className="m-8 flex justify-center">
+                    <button
+                        onClick={() => setDataLength(donateList.length)}
+                        className='text-base font-semibold text-[#fff] bg-[#009444] px-6 py-3 rounded-lg'
+                    >See All</button>
+                </div>
+            </div>
         </div>
     );
 };

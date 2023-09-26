@@ -12,6 +12,8 @@ const Statistics = () => {
 
     return (
         <div className='flex flex-col items-center justify-center'>
+
+
             <div style={{ width: 500, height: 500 }}>
                 <CircularProgressbar
                     value={percent}
@@ -23,6 +25,8 @@ const Statistics = () => {
                     })}
                 />
             </div>
+            
+            
             <div className="flex gap-12 m-12">
                 <div className="flex justify-center items-center">
                     <h2 className='text-[#0B0B0B] text-lg font-normal mr-4'>Your Donation</h2>
